@@ -170,7 +170,7 @@ html {
   border-bottom: 2px solid rgba(128, 128, 128, 0.801); */
   outline: none;
   padding: 20px 40px;
-  width: 95%;
+  width: 100%;
 }
 
 .submit__button {
@@ -279,14 +279,19 @@ html {
   }
 
   .contact__area {
+    width: 100%;
     margin-left: 0;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
   }
 
   .contact__form {
     display: block;
     margin: auto;
-    max-width: 90%;
+    max-width: 80%;
     display: flex;
     gap: 10;
     width: 90%;
@@ -300,6 +305,7 @@ html {
     align-items: center;
     text-align: center;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
   }
 }
