@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import '../css/home.css'
 import gstmd2 from '../img/picme_circle.png'
 import SideMenu from '../components/SideMenu'
@@ -7,19 +7,27 @@ import Skills from '../components/Skills'
 import { FaLinkedin } from 'react-icons/fa'
 import { FaYoutube } from 'react-icons/fa'
 import { IoLogoWhatsapp } from 'react-icons/io'
+import emailjs from '@emailjs/browser'
 // import nodemailer from 'nodemailer'
 
 function Home() {
+  const form = useRef()
   const [email, setEmail] = useState('')
   const [context, setContext] = useState('')
   const [content, setContent] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const res = await emailjs.sendForm(
+      'service_g3kourn',
+      'template_z1xp6z6',
+      form.current,
+      'XpxSptLTBEt72jWil',
+    )
+    console.log(res.text)
     setEmail('')
     setContext('')
     setContent('')
-
   }
 
   return (
@@ -94,12 +102,17 @@ function Home() {
             </div>
           </div>
 
-          <form className='contact__form' onSubmit={handleSubmit} action='get'>
+          <form
+            ref={form}
+            className='contact__form'
+            onSubmit={handleSubmit}
+            action='get'
+          >
             <input
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              name='email'
+              name='from_name'
               placeholder='Seu email'
               required
             />
@@ -107,7 +120,7 @@ function Home() {
               type='text'
               value={context}
               onChange={(e) => setContext(e.target.value)}
-              name='context'
+              name='subject'
               placeholder='Assunto'
               minLength={1}
               required
@@ -115,7 +128,7 @@ function Home() {
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              name='content'
+              name='message'
               placeholder='Conteúdo'
               rows='5'
               minLength={1}
