@@ -18,13 +18,12 @@ function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await emailjs.sendForm(
+    await emailjs.sendForm(
       'service_g3kourn',
       'template_z1xp6z6',
       form.current,
       'XpxSptLTBEt72jWil',
     )
-    console.log(res.text)
     setEmail('')
     setContext('')
     setContent('')
@@ -47,13 +46,13 @@ function Home() {
         <div className='info__container'>
           <p className='me__description first-letter:text-3xl'>
             Prazer meu nome é Gustavo Aquino e sou Desenvolvedor Fullstack Jr.
-            Essa é uma frase classica, porém não diz nada sobre mim, por isso
+            Essa é uma frase clássica, porém não diz nada sobre mim, por isso
             vou te explicar como eu cheguei até aqui! Meu primeiro contato com a
             programação foi quando estava pesquisando e decidindo qual seria a
             melhor profissão para mim, vi sobre muitas delas, mas nenhuma
             realmente me interessava, quando vi a programação me despertou uma
-            curiosidade, então começei a fazer alguns cursos introdutórios para
-            decidir se era aquilo que eu queria, até que eu fui fazendo, 1,2, 3
+            curiosidade, então comecei a fazer alguns cursos introdutórios para
+            decidir se era aquilo que eu queria, até que eu fui fazendo, 1, 2, 3
             e quando percebi já havia decidido que eu seria um programador,
             cheguei a fazer o primeiro de semestre da faculdade ADS (Análise e
             Desenvolvimento de Sistemas) porém não gostei do ensino, sempre
