@@ -65,7 +65,7 @@
   font-size: 1.6rem;
   line-height: 2rem;
   color: rgba(0, 0, 0, 0.785);
-  text-align: justify;
+  text-align: left;
 }
 
 .project__image {
@@ -126,7 +126,7 @@
   }
 
   .project__image:hover {
-    transform: scale(1.0);
+    transform: scale(1);
   }
 }
 
@@ -153,6 +153,7 @@
 
   .skills__specify__title {
     display: block;
+    font-size: 17px;
   }
 
   .projects__container {
@@ -191,7 +192,7 @@
 
   .project__description {
     font-size: 17px;
-    max-width: 80%;
+    max-width: 70%;
   }
 
   .stack__icon {
