@@ -22,11 +22,13 @@ function Home() {
     useContext(Context)
 
   useEffect(() => {
-    window.scrollTo({
-      top: dimensions[0],
-      left: dimensions[1],
-      behavior: 'instant',
-    })
+    if (dimensions[0]) {
+      window.scrollTo({
+        top: dimensions[0],
+        left: dimensions[1],
+        behavior: 'instant',
+      })
+    }
   })
 
   const handleSubmit = async (e) => {
@@ -111,9 +113,7 @@ function Home() {
         </div>
       </div>
 
-      <div
-        style={{ display: hamburgerClicked ? 'none' : 'flex' }}
-      >
+      <div style={{ display: hamburgerClicked ? 'none' : 'flex' }}>
         <SideMenu />
         <div id='home' className='home__container'>
           <div className='aboutme__icon__container'>
