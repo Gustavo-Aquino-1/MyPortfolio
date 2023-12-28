@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react'
+import React, { useState, useRef, useContext, useEffect } from 'react'
 import '../css/home.css'
 import gstmd2 from '../img/picme_circle.png'
 import SideMenu from '../components/SideMenu'
@@ -18,7 +18,16 @@ function Home() {
   const [email, setEmail] = useState('')
   const [context, setContext] = useState('')
   const [content, setContent] = useState('')
-  const { hamburgerClicked, setHamburgerClicked } = useContext(Context)
+  const { hamburgerClicked, setHamburgerClicked, dimensions } =
+    useContext(Context)
+
+  useEffect(() => {
+    window.scrollTo({
+      top: dimensions[0],
+      left: dimensions[1],
+      behavior: 'instant',
+    })
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -33,10 +42,12 @@ function Home() {
     setContent('')
   }
 
-
   return (
     <>
-      <div className='justify-center' style={{ display: hamburgerClicked ? 'flex': 'none'}}>
+      <div
+        className='justify-center'
+        style={{ display: hamburgerClicked ? 'flex' : 'none' }}
+      >
         <div>
           <p
             onClick={(e) => setHamburgerClicked(false)}
@@ -50,12 +61,12 @@ function Home() {
               onClick={(e) => setHamburgerClicked(false)}
               className='flex flex-col items-center gap-5 link__container'
             >
-              <a href='#home'>
+              <span href='#home'>
                 <FaHome className='link__icon' />
-              </a>
-              <a href='#home' className='link__name'>
+              </span>
+              <span href='#home' className='link__name'>
                 Home
-              </a>
+              </span>
             </a>
 
             <a
@@ -63,12 +74,12 @@ function Home() {
               onClick={(e) => setHamburgerClicked(false)}
               className='flex flex-col items-center gap-5 link__container'
             >
-              <a href='#projects'>
+              <span href='#projects'>
                 <GoProject className='link__icon' />
-              </a>
-              <a href='#projects' className='link__name'>
+              </span>
+              <span href='#projects' className='link__name'>
                 Projects
-              </a>
+              </span>
             </a>
 
             <a
@@ -76,12 +87,12 @@ function Home() {
               onClick={(e) => setHamburgerClicked(false)}
               className='flex flex-col items-center gap-5 link__container'
             >
-              <a href='#skills'>
+              <span href='#skills'>
                 <FaLaptopCode className='link__icon' />
-              </a>
-              <a href='#skills' className='link__name'>
+              </span>
+              <span href='#skills' className='link__name'>
                 Skills
-              </a>
+              </span>
             </a>
 
             <a
@@ -89,18 +100,20 @@ function Home() {
               onClick={(e) => setHamburgerClicked(false)}
               className='flex flex-col items-center gap-5 link__container'
             >
-              <a href='#contact'>
+              <span href='#contact'>
                 <MdContacts className='link__icon' />
-              </a>
-              <a href='#contact' className='link__name'>
+              </span>
+              <span href='#contact' className='link__name'>
                 Contact
-              </a>
+              </span>
             </a>
           </div>
         </div>
       </div>
 
-      <div style={{ display: hamburgerClicked ? 'none' : 'flex'}}>
+      <div
+        style={{ display: hamburgerClicked ? 'none' : 'flex' }}
+      >
         <SideMenu />
         <div id='home' className='home__container'>
           <div className='aboutme__icon__container'>
@@ -166,7 +179,10 @@ function Home() {
                   target='_blank'
                   rel='noreferrer'
                 >
-                  <IoLogoWhatsapp className='link__icon__contact' color='green' />
+                  <IoLogoWhatsapp
+                    className='link__icon__contact'
+                    color='green'
+                  />
                 </a>
               </div>
             </div>

@@ -10,7 +10,12 @@ import { Context } from '../context/Context'
 
 function SideMenu() {
   const { push } = useHistory()
-  const { setHamburgerClicked } = useContext(Context)
+  const { setHamburgerClicked, setDimensions } = useContext(Context)
+
+  const handleClick = (e) => {
+    setDimensions([window.scrollY, window.scrollX])
+    setHamburgerClicked(true)
+  }
 
 
   return (
@@ -59,10 +64,10 @@ function SideMenu() {
       </div>
       <div className='max-md:flex max-sm:justify-between hidden py-4 bg-[#EEEEB3] w-full z-10 fixed navbar__mobile'>
         <span>
-          <RxHamburgerMenu onClick={(e) => setHamburgerClicked(true)} size={30} className='ml-4' />
+          <RxHamburgerMenu onClick={(e) => handleClick(e)} size={30} className='ml-4' />
         </span>
 
-        <span className='text-center flex justify-center items-center text-lg mr-4'>
+        <span id='author__name' className='text-center flex justify-center items-center text-lg mr-4'>
           Gustavo Aquino
         </span>
 
