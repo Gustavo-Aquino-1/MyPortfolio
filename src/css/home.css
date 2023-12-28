@@ -27,7 +27,9 @@
 }
 
 .side_menu {
-  background-color: rgb(238, 238, 179);
+  /* background-color: rgb(238, 238, 179); */
+  background: linear-gradient(rgb(39, 132, 107), rgb(39, 132, 150));
+  color: white;
   height: 100vh;
   width: 100px;
   max-width: 150px;
@@ -95,8 +97,10 @@ html {
 }
 
 .aboutme__img {
-  background-color: rgb(238, 238, 179);
+  /* background-color: rgb(238, 238, 179); */
+  background: linear-gradient(rgb(39, 132, 107), rgb(39, 132, 150));
 }
+
 
 .projects__area {
   margin-left: 250px;
@@ -112,7 +116,7 @@ html {
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgb(238, 238, 179);
+  background: linear-gradient(rgb(153, 214, 196), rgb(135, 194, 206));
   gap: 30px;
   min-width: 250px;
   min-height: 270px;
@@ -122,7 +126,7 @@ html {
   overflow: hidden;
   position: relative;
   border-radius: 10px;
-  border: 1px solid rgb(160, 160, 85);
+  border: 1px solid rgb(134, 188, 172);
 }
 
 .layer__container {
@@ -233,7 +237,9 @@ textarea {
 }
 
 .navbar__mobile {
-  border: 1px solid rgb(161, 158, 54);
+  background: linear-gradient(rgb(185, 255, 234), rgb(152, 217, 230));
+  color: rgb(58, 57, 57);
+  border-bottom: 1px solid rgba(54, 81, 86, 0.636);
 }
 
 @media only screen and (max-width: 768px) {
@@ -429,6 +435,12 @@ textarea {
     align-items: center;
     margin-top: 5rem;
     flex-wrap: wrap;
+  }
+
+  .aboutme__img {
+    /* background-color: rgb(238, 238, 179); */
+    background: linear-gradient(rgb(153, 214, 196), rgb(118, 170, 181));
+
   }
 
   .section__title {

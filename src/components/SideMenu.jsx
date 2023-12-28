@@ -62,7 +62,7 @@ function SideMenu() {
           </div>
         </div>
       </div>
-      <div className='max-md:flex max-sm:justify-between hidden py-4 bg-[#EEEEB3] w-full z-10 fixed navbar__mobile'>
+      <div className='max-md:flex max-sm:justify-between hidden py-4 w-full z-10 fixed navbar__mobile'>
         <span>
           <RxHamburgerMenu onClick={(e) => handleClick(e)} size={30} className='ml-4' />
         </span>

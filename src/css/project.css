@@ -23,12 +23,6 @@
   max-height: 700px;
 }
 
-.project-left {
-}
-
-.project-right {
-}
-
 .stacks__container {
   max-width: 600px;
   display: flex;
@@ -94,7 +88,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgb(238, 238, 179), rgb(236, 236, 133));
+  background: linear-gradient( rgb(79, 146, 128),rgb(177, 195, 190));
   display: flex;
   justify-content: center;
   align-items: center;
