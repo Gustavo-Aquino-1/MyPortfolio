@@ -7,22 +7,26 @@ import '../css/home.css'
 import { FaLaptopCode } from 'react-icons/fa'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { Context } from '../context/Context'
+import { FaSun } from 'react-icons/fa6'
 
 function SideMenu() {
   const { push } = useHistory()
-  const { setHamburgerClicked, setDimensions } = useContext(Context)
+  const { setHamburgerClicked, setDimensions, isLight, setIsLight } =
+    useContext(Context)
 
   const handleClick = (e) => {
     setDimensions([window.scrollY, window.scrollX])
     setHamburgerClicked(true)
   }
 
-
   return (
     // md 768, for up will apears if go down tha this disapear
     <>
       <div className='md:block hidden'>
-        <div className='side_menu h-[100%]'>
+        <div
+          style={{ background: !isLight && '#10283f' }}
+          className='side_menu h-[100%]'
+        >
           <div className='links_menu'>
             <div className='link__container'>
               <a href='#home'>
@@ -59,15 +63,30 @@ function SideMenu() {
                 Contact
               </a>
             </div>
+
+            <div className='flex flex-col items-center gap-5 link__container'>
+              <FaSun
+                onClick={(e) => setIsLight(!isLight)}
+                className='link__icon hover:cursor-pointer'
+              />
+              <span className='link__name'>Theme</span>
+            </div>
           </div>
         </div>
       </div>
-      <div className='max-md:flex max-sm:justify-between hidden py-4 w-full z-10 fixed navbar__mobile'>
+      <div style={{ background: !isLight && '#122133', color: !isLight && 'white'}} className='max-md:flex max-sm:justify-between hidden py-4 w-full z-10 fixed navbar__mobile'>
         <span>
-          <RxHamburgerMenu onClick={(e) => handleClick(e)} size={30} className='ml-4' />
+          <RxHamburgerMenu
+            onClick={(e) => handleClick(e)}
+            size={30}
+            className='ml-4'
+          />
         </span>
 
-        <span id='author__name' className='text-center flex justify-center items-center text-lg mr-4'>
+        <span
+          id='author__name'
+          className='text-center flex justify-center items-center text-lg mr-4'
+        >
           Gustavo Aquino
         </span>
 

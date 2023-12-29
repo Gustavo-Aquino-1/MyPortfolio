@@ -5,6 +5,7 @@ const Context = createContext()
 export default function Provider({ children }) {
   const [hamburgerClicked, setHamburgerClicked] = useState(false)
   const [dimensions, setDimensions] = useState([0, 0]) // height, width
+  const [isLight, setIsLight] = useState(true)
 
   const contextValue = useMemo(
     () => ({
@@ -12,8 +13,10 @@ export default function Provider({ children }) {
       setHamburgerClicked,
       dimensions,
       setDimensions,
+      isLight,
+      setIsLight,
     }),
-    [hamburgerClicked, dimensions],
+    [hamburgerClicked, dimensions, isLight],
   )
 
   return <Context.Provider value={contextValue}>{children}</Context.Provider>

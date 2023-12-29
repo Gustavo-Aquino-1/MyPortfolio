@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import mapPart from '../data/stacksPart'
 import { mapBlack } from '../data/stacksIcons'
 import '../css/home.css'
+import { Context } from '../context/Context'
 
 function Skills() {
+  const { isLight } = useContext(Context)
   return (
     <div id='skills' className='skills__area'>
-          <h2 className='section__title'>Skills</h2>
+          <h2 style={{ color: !isLight && 'white' }} className='section__title'>Skills</h2>
           <div className='skills__list'>
             {Object.keys(mapPart).map((key, i) => (
               <div key={key} className='skills__box '>

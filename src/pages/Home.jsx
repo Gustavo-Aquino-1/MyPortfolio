@@ -4,7 +4,7 @@ import gstmd2 from '../img/picme_circle.png'
 import SideMenu from '../components/SideMenu'
 import Project from '../components/Project'
 import Skills from '../components/Skills'
-import { FaHome, FaLaptopCode, FaLinkedin } from 'react-icons/fa'
+import { FaHome, FaLaptopCode, FaLinkedin, FaSun } from 'react-icons/fa'
 import { FaYoutube } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
@@ -18,8 +18,13 @@ function Home() {
   const [email, setEmail] = useState('')
   const [context, setContext] = useState('')
   const [content, setContent] = useState('')
-  const { hamburgerClicked, setHamburgerClicked, dimensions } =
-    useContext(Context)
+  const {
+    hamburgerClicked,
+    setHamburgerClicked,
+    dimensions,
+    isLight,
+    setIsLight,
+  } = useContext(Context)
 
   useEffect(() => {
     if (dimensions[0]) {
@@ -47,8 +52,12 @@ function Home() {
   return (
     <div className='page__container'>
       <div
-        className='justify-center'
-        style={{ display: hamburgerClicked ? 'flex' : 'none' }}
+        className='justify-center mobile__links__page'
+        style={{
+          display: hamburgerClicked ? 'flex' : 'none',
+          background: !isLight && '#1b314c',
+          color: !isLight && 'white',
+        }}
       >
         <div>
           <p
@@ -109,21 +118,42 @@ function Home() {
                 Contact
               </span>
             </a>
+
+            <span className='flex flex-col items-center gap-5 link__container'>
+              <FaSun
+                onClick={(e) => setIsLight(!isLight)}
+                className='link__icon hover:cursor-pointer'
+              />
+              <span className='link__name'>Theme</span>
+            </span>
           </div>
         </div>
       </div>
 
-      <div style={{ display: hamburgerClicked ? 'none' : 'flex' }}>
+      <div
+        style={{
+          display: hamburgerClicked ? 'none' : 'flex',
+          background: !isLight && '#1b314c',
+          color: !isLight && 'lightblue',
+          zIndex: 1000,
+        }}
+      >
         <SideMenu />
         <div id='home' className='home__container'>
           <div className='aboutme__icon__container'>
-            <h2 className='section__title'>About me</h2>
+            <h2
+              style={{ color: !isLight && 'white' }}
+              className='section__title'
+            >
+              About me
+            </h2>
             <img
               src={gstmd2}
               alt='Gustavo Aquino'
               width={150}
               height={100}
               className='rounded-[50%] aboutme__img'
+              style={{ background: !isLight && 'lightblue' }}
             />
           </div>
           <div className='info__container'>
@@ -149,21 +179,34 @@ function Home() {
             </p>
           </div>
           <div id='projects' className='projects__area mt-[100px]'>
-            <h2 className='section__title'>Projects</h2>
+            <h2
+              style={{ color: !isLight && 'white' }}
+              className='section__title'
+            >
+              Projects
+            </h2>
             <Project />
           </div>
           <Skills />
 
           <div id='contact' className='contact__area'>
             <div className='flex items-end gap-10 title__and__links__contact'>
-              <h1 className='section__title'>Contact</h1>
+              <h2
+                style={{ color: !isLight && 'white' }}
+                className='section__title'
+              >
+                Contact
+              </h2>
               <div className='flex gap-10'>
                 <a
                   target='_blank'
                   href='https://www.linkedin.com/in/gustavo--aquino/'
                   rel='noreferrer'
                 >
-                  <FaLinkedin className='link__icon__contact' color='blue' />
+                  <FaLinkedin
+                    className='link__icon__contact'
+                    color={isLight ? 'blue' : 'lightblue'}
+                  />
                 </a>
 
                 <a
@@ -179,7 +222,10 @@ function Home() {
                   target='_blank'
                   rel='noreferrer'
                 >
-                  <FaGithub className='link__icon__contact' />
+                  <FaGithub
+                    className='link__icon__contact'
+                    color={isLight ? 'black' : 'white'}
+                  />
                 </a>
               </div>
             </div>
@@ -196,6 +242,7 @@ function Home() {
                 onChange={(e) => setEmail(e.target.value)}
                 name='from_name'
                 placeholder='Seu email'
+                style={{ color: !isLight && 'black' }}
                 required
               />
               <input
@@ -205,6 +252,7 @@ function Home() {
                 name='subject'
                 placeholder='Assunto'
                 minLength={1}
+                style={{ color: !isLight && 'black' }}
                 required
               />
               <textarea
@@ -214,13 +262,29 @@ function Home() {
                 placeholder='Conteúdo'
                 rows='5'
                 minLength={1}
+                style={{ color: !isLight && 'black' }}
                 required
               />
               <div className='flex gap-5'>
-                <button className='submit__button' type='submit'>
+                <button
+                  style={{
+                    background: !isLight && '#10283f',
+                    border: !isLight && '1px solid #244a6d',
+                  }}
+                  className='submit__button'
+                  type='submit'
+                >
                   Enviar
                 </button>
-                <button className='clean__button' type='reset'>
+                <button
+                  style={{
+                    background: !isLight && '#10283f',
+                    border: !isLight && '1px solid #244a6d',
+                    color: !isLight && 'white',
+                  }}
+                  className='clean__button'
+                  type='reset'
+                >
                   Limpar
                 </button>
               </div>

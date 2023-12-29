@@ -191,6 +191,14 @@ textarea {
   width: 100%;
 }
 
+.contact__form input::placeholder {
+  color: rgb(40, 40, 40);
+}
+
+.contact__form textarea::placeholder {
+  color: rgb(40, 40, 40);
+}
+
 .submit__button {
   background-color: rgb(66, 131, 113);
   padding: 2px 15px;

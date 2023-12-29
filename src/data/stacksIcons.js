@@ -41,6 +41,22 @@ const mapBlack = {
   Linux: <FcLinux />,
 }
 
+const mapLightBlue = {
+  Typescript: <SiTypescript color='#99d6c4' />,
+  Javascript: <IoLogoJavascript color='#99d6c4' />,
+  'Node.js': <FaNode color='#99d6c4' />,
+  Express: <SiExpress color='#99d6c4' />,
+  React: <SiPreact color='#99d6c4' />,
+  MySQL: <SiMysql color='#99d6c4' />,
+  Docker: <FaDocker color='#99d6c4' />,
+  Java: <FaJava color='#99d6c4' />,
+  MongoDb: <BiLogoMongodb color='#99d6c4' />,
+  'Spring-boot': <SiSpring color='#99d6c4' />,
+  Git: <FaGitAlt color='#99d6c4' />,
+  Linux: <FcLinux />,
+}
+
+
 // const map = {
 //   'Typescript': <SiTypescript color="cadetblue" size={40} />,
 //   'Javascript': <IoLogoJavascript color="gold" size={40} />,
@@ -53,5 +69,5 @@ const mapBlack = {
 //   'MongoDb': <BiLogoMongodb color="green" size={40} />,
 // }
 
-export { mapBlack }
+export { mapBlack, mapLightBlue }
 export default map
