@@ -6,7 +6,7 @@ import Project from '../components/Project'
 import Skills from '../components/Skills'
 import { FaHome, FaLaptopCode, FaLinkedin } from 'react-icons/fa'
 import { FaYoutube } from 'react-icons/fa'
-import { IoLogoWhatsapp } from 'react-icons/io'
+import { FaGithub } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
 import { Context } from '../context/Context'
 import { MdContacts } from 'react-icons/md'
@@ -45,7 +45,7 @@ function Home() {
   }
 
   return (
-    <>
+    <div className='page__container'>
       <div
         className='justify-center'
         style={{ display: hamburgerClicked ? 'flex' : 'none' }}
@@ -175,14 +175,11 @@ function Home() {
                 </a>
 
                 <a
-                  href='https://w.app/GustavoAquino'
+                  href='https://github.com/Gustavo-Aquino-1'
                   target='_blank'
                   rel='noreferrer'
                 >
-                  <IoLogoWhatsapp
-                    className='link__icon__contact'
-                    color='green'
-                  />
+                  <FaGithub className='link__icon__contact' />
                 </a>
               </div>
             </div>
@@ -231,7 +228,7 @@ function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

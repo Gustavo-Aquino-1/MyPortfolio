@@ -93,7 +93,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  transform: translateY(100%);
+  transform: translateY(101%);
   transition: 0.5s ease;
   padding: 0 4rem;
 }
@@ -116,7 +116,7 @@
   }
 
   .img__link__container:hover .project__link {
-    transform: translateY(100%);
+    transform: translateY(101%);
   }
 
   .project__image:hover {
