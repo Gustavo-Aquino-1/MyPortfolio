@@ -39,7 +39,14 @@ function Project() {
                     className='project__image'
                     alt={e.name}
                   />
-                  <div style={{ background: !isLight && 'linear-gradient(#10283f,lightblue)', zIndex: 1000}} className='project__link'>
+                  <div
+                    style={{
+                      background:
+                        !isLight && 'linear-gradient(#10283f,lightblue)',
+                      zIndex: 1000,
+                    }}
+                    className='project__link'
+                  >
                     <a
                       href={e.repositoryLink}
                       target='_blank'
